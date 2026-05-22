@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import HistoryCard from "@/components/ui/HistoryCard";
 import TopicCard from "@/components/ui/TopicCard";
+import PdfUploader from "@/components/PdfUploader";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,6 +12,7 @@ export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [histories, setHistories] = useState([]);
+  const [file, setFile] = useState<File | null>(null);
 
   useEffect(() => {
     const localCategories = localStorage.getItem("categories");
@@ -87,7 +89,7 @@ export default function HomePage() {
   };
   return (
     <div className="w-full">
-      <div className="bg-primary-50 h-[340px] flex flex-col items-center text-center pt-12">
+      <div className="bg-primary-50 w-[402px] h-screen flex flex-col items-center text-center pt-12">
         <h3 className="text-h3">Welcome, {name || ""}!</h3>
         <p className="text-body text-neutral-500">What topic do you want to explore today?</p>
       </div>
@@ -95,28 +97,23 @@ export default function HomePage() {
       {/* Main Container */}
       <div className="bg-neutral-50 px-6 pb-6 pt-[169px] relative">
         {/* Floating Form */}
-        <div className="absolute -top-54 left-6 right-6">
+        <div className="absolute -top-54 left-6 right-6 space-y-4 p-4 rounded-3xl border border-neutral-300 bg-white">
           <div className="relative h-[132px]">
             <Image src="/images/mascot-home.png" alt="Fenyman AI Mascot Home" fill priority className="object-contain" />
           </div>
-          <form className="space-y-4 p-4 rounded-3xl border border-neutral-300 bg-white">
+          <form className="space-y-4">
             <div className="w-full bg-white border border-neutral-300 rounded-lg px-4 py-3">
-              <label className="block text-label">Learning Topic</label>
-              <input type="text" className="w-full text-body" placeholder="Type topic that you want to learn here..." />
+              <input type="text" className="w-full text-body outline-none text-neutral-700" placeholder="Type topic that you want to learn here..." />
             </div>
             <button type="submit" className="cursor-pointer bg-primary-500 px-3 py-2 rounded-lg w-full text-white text-btn">
               Start Learning Now
             </button>
-            <div className="w-full">
-              <input type="file" id="pdf-upload" accept=".pdf" className="hidden" />
-              <label
-                htmlFor="pdf-upload"
-                className="block text-center cursor-pointer bg-white px-3 py-2 rounded-lg w-full text-black text-btn border border-neutral-300"
-              >
-                Use PDF File
-              </label>
-            </div>
           </form>
+          <div className="w-full flex flex-col gap-2">
+            <div className="cursor-pointer px-3 py-2 rounded-lg w-full text-neutral-700 border border-neutral-300 bg-white text-center">
+              <PdfUploader/>
+            </div>
+          </div>
         </div>
 
         {/* Topic Suggestions Section */}
