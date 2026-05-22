@@ -34,6 +34,8 @@ export async function POST(request: Request) {
         "ai_feedback": "Tulis ringkasan global analisis performa belajar user di sini secara makro, chill, dan mendalam...",
         "question_breakdown": [
           {
+            "question": "Isi dengan pertanyaan yang sesuai dari data input",
+            "user_answer": "Isi dengan jawaban user yang sesuai dari data input",
             "question_id": "Isi dengan question_id yang sesuai dari data input",
             "status": "Correct", 
             "ai_feedback": "Tulis analisis mikro di sini (MAKSIMAL 2 KALIMAT). Langsung tunjuk poin benar atau letak miskonsepsinya dengan chill tanpa membocorkan jawaban yang benar."

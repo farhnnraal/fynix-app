@@ -132,11 +132,11 @@ export default function HomePage() {
               {loading ? "Generating Material..." : "Start Learning Now"}
             </button>
           </form>
-          <div className="w-full flex flex-col gap-2">
+          {/* <div className="w-full flex flex-col gap-2">
             <div className="cursor-pointer px-3 py-2 rounded-lg w-full text-neutral-700 border border-neutral-300 bg-white text-center">
               <PdfUploader/>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Topic Suggestions Section */}

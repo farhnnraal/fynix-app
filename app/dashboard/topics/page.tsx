@@ -54,7 +54,6 @@ export default function TopicPage() {
           {categories.length > 0 ? (
             // 3. Render seluruh data kategori yang ada
             categories.map((cat) => {
-              console.log(cat);
               // Bikin huruf kapital di awal kata (contoh: "astronomy" -> "Astronomy")
               const formattedName = cat.name.charAt(0).toUpperCase() + cat.name.slice(1);
               
