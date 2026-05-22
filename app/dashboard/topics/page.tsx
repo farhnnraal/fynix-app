@@ -1,7 +1,41 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import TopicCard from "@/components/ui/TopicCard";
 import Link from "next/link";
 
 export default function TopicPage() {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    // 1. Ambil data mentah dari localStorage
+    const localCategories = localStorage.getItem("categories");
+    const localTopics = localStorage.getItem("topics");
+    
+    if (localCategories) {
+      try {
+        const parsedCategories = JSON.parse(localCategories);
+        const parsedTopics = localTopics ? JSON.parse(localTopics) : [];
+        
+        // 2. Olah SEMUA data tanpa menggunakan .slice()
+        const categoriesWithCount = parsedCategories.map((cat: any) => {
+          // Hitung jumlah topik yang sesuai dengan category_id saat ini
+          const matchingTopics = parsedTopics.filter(
+            (topic: any) => topic.category_id === cat.category_id
+          );
+          
+          return {
+            ...cat,
+            totalTopicsCount: matchingTopics.length
+          };
+        });
+
+        setCategories(categoriesWithCount);
+      } catch (error) {
+        console.error("Gagal memproses data categories atau topics:", error);
+      }
+    }
+  }, []);
   return (
     <div className="w-full h-dvh flex flex-col items-center max-w-[390px] mx-auto bg-neutral-50 min-h-screen relative">
       <div className="overflow-y-auto p-6">
@@ -15,18 +49,24 @@ export default function TopicPage() {
         <h3 className="text-h3 font-bold text-neutral-900 mb-2">Topic Categories</h3>
         <p className="text-body text-neutral-500 mb-4">Explore various topics and find out what to learn</p>
         <div className="grid grid-cols-2 gap-4">
-          <TopicCard imageUrl="/images/mathematics.jpg" name="Mathematics" total={7} />
-          <TopicCard imageUrl="/images/science.jpg" name="Science" total={7} />
-          <TopicCard imageUrl="/images/history.jpg" name="History" total={7} />
-          <TopicCard imageUrl="/images/technology.jpg" name="Technology" total={7} />
-          <TopicCard imageUrl="/images/sport.jpg" name="Sport" total={7} />
-          <TopicCard imageUrl="/images/art-and-culture.jpg" name="Art & Culture" total={7} />
-          <TopicCard imageUrl="/images/economics.jpg" name="Economics" total={7} />
-          <TopicCard imageUrl="/images/social-science.jpg" name="Social Science" total={7} />
-          <TopicCard imageUrl="/images/health-and-biology.jpg" name="Health & Biology" total={7} />
-          <TopicCard imageUrl="/images/language.jpg" name="Language" total={7} />
-          <TopicCard imageUrl="/images/philosophy.jpg" name="Philosophy" total={7} />
-          <TopicCard imageUrl="/images/astronomy.jpg" name="astronomy" total={7} />
+          {categories.length > 0 ? (
+            // 3. Render seluruh data kategori yang ada
+            categories.map((cat) => {
+              // Bikin huruf kapital di awal kata (contoh: "astronomy" -> "Astronomy")
+              const formattedName = cat.name.charAt(0).toUpperCase() + cat.name.slice(1);
+              
+              return (
+                <TopicCard
+                  key={cat.category_id}
+                  imageUrl={`/images/${cat.image}`}
+                  name={formattedName}
+                  total={cat.totalTopicsCount || 0} // Otomatis dinamis sesuai hitungan di atas
+                />
+              );
+            })
+          ) : (
+            <p className="col-span-2 text-center text-gray-500">Tidak ada kategori ditemukan</p>
+          )}
         </div>
       </div>
     </div>

@@ -19,8 +19,12 @@ export async function POST(request: Request) {
 
       Tugasmu sebagai evaluator tunggal:
       1. Analisis setiap jawaban essay user secara kritis menggunakan pengetahuan internalmu. Jangan terkecoh gaya bahasa yang meyakinkan jika substansinya kosong atau melenceng.
-      2. Tentukan status untuk tiap soal secara tegas: "Correct" jika konsep esensialnya benar/mendekati, atau "Incorrect" jika salah/miskonsepsi/melenceng jauh.
-      3. Hitung skor total user secara matematis dengan rumus dasar: (Jumlah soal yang "Correct" / Total semua soal) * 100.
+      2. Tentukan status untuk tiap soal secara tegas dengan ketentuan:
+        - "Understood": Jika konsep esensialnya benar, matang, dan tepat.
+        - "Partial": Jika ada poin penting yang benar namun kurang lengkap, menggantung, atau mengandung sedikit miskonsepsi.
+        - "Not Understood": Jika jawaban salah, melenceng jauh, atau substansinya kosong.
+      3. Hitung skor total user secara matematis dengan rumus bobot: 
+        Skor = ((Jumlah "Understood" + (0.5 * Jumlah "Partial")) / Total semua soal) * 100
       4. Tulis evaluasi makro secara mendalam (kelebihan, kekurangan, saran) pada "ai_feedback" global, dan analisis mikro yang mendalam tentang letak kebenaran atau miskonsepsi user pada tiap-tiap soal tanpa membocorkan kunci jawaban asli di dalamnya.
       5. Gunakan gaya bahasa yang santai, chill, namun mendalam dan objektif (tanpa afirmasi basa-basi atau pujian berlebihan yang tidak perlu).
 

@@ -170,7 +170,7 @@ export default function HomePage() {
             ))
           ) : (
             // Tampilan jika user baru mendaftar dan belum punya riwayat belajar sama sekali
-            <p className="text-center py-4 text-gray-500 text-sm">Kamu belum memulai quiz apa pun.</p>
+            <p className="text-center py-4 text-gray-500 text-sm">You don't have any hsitories</p>
           )}
         </div>
       </section>

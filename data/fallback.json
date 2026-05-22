@@ -248,7 +248,7 @@
         {
           "question_id": "q_tech_01",
           "question_number": 1,
-          "status": "Correct",
+          "status": "Understood",
           "question": "Manakah HTTP method yang paling tepat digunakan untuk memperbarui sebagian data resource?",
           "user_answer": "PATCH",
           "ai_feedback": "Benar. PATCH digunakan untuk partial update, berbeda dengan PUT yang mengganti seluruh resource."
