@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 interface SubTopicSelectionProps {
   id: string;
@@ -10,7 +9,7 @@ interface SubTopicSelectionProps {
 export default function TopicSelection({ id, title, difficulty }: SubTopicSelectionProps) {
   return (
     <Link href={`/dashboard/material/${id}`} className="p-4 rounded-lg bg-white border border-neutral-300 flex items-center justify-between">
-      <p className="text-body">{title}</p>
+      <p className="text-body line-clamp-1">{title}</p>
       <div className="flex items-center gap-2">
         <span className="text-caption text-neutral-500">{difficulty}</span>
         <svg
