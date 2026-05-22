@@ -6,11 +6,21 @@ import HistoryCard from "@/components/ui/HistoryCard";
 import TopicCard from "@/components/ui/TopicCard";
 import Image from "next/image";
 import Link from "next/link";
+import { useGenerateTopic } from "@/hooks/useGenerateTopic";
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
   const [histories, setHistories] = useState([]);
+
+  const router = useRouter();
+
+  const { topic, loading, handleTopicChange, submitTopic } = useGenerateTopic({
+    onSuccess: (data) => {
+      router.push(`/dashboard/topics/${data.custom_topic_id}`);
+    },
+  });
 
   useEffect(() => {
     const localCategories = localStorage.getItem("categories");
@@ -99,13 +109,25 @@ export default function HomePage() {
           <div className="relative h-[132px]">
             <Image src="/images/mascot-home.png" alt="Fenyman AI Mascot Home" fill priority className="object-contain" />
           </div>
-          <form className="space-y-4 p-4 rounded-3xl border border-neutral-300 bg-white">
+          <form onSubmit={submitTopic} className="space-y-4 p-4 rounded-3xl border border-neutral-300 bg-white">
             <div className="w-full bg-white border border-neutral-300 rounded-lg px-4 py-3">
               <label className="block text-label">Learning Topic</label>
-              <input type="text" className="w-full text-body" placeholder="Type topic that you want to learn here..." />
+              <input
+                type="text"
+                className="w-full text-body"
+                placeholder="Type topic that you want to learn here..."
+                value={topic}
+                onChange={(e) => handleTopicChange(e.target.value)}
+              />
             </div>
-            <button type="submit" className="cursor-pointer bg-primary-500 px-3 py-2 rounded-lg w-full text-white text-btn">
-              Start Learning Now
+            <button
+              disabled={loading}
+              type="submit"
+              className={`cursor-pointer bg-primary-500 px-3 py-2 rounded-lg w-full text-white text-btn font-semibold transition-all ${
+                loading ? "opacity-50 cursor-not-allowed bg-neutral-400" : "hover:bg-primary-600"
+              }`}
+            >
+              {loading ? "Generating Material..." : "Start Learning Now"}
             </button>
             <div className="w-full">
               <input type="file" id="pdf-upload" accept=".pdf" className="hidden" />
