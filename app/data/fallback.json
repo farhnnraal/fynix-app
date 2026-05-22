@@ -64,8 +64,7 @@
       "topic_id": "top_math_01",
       "category_id": "cat_math",
       "title": "Aljabar Linear Dasar",
-      "difficulty": "Intermediate",
-      "duration": "90 Menit",
+      "difficulty": "Medium",
       "sub_topics": [
         {
           "sub_topic_id": "sub_math_01a",
@@ -84,7 +83,6 @@
       "category_id": "cat_science",
       "title": "Fisika Kuantum untuk Pemula",
       "difficulty": "Advanced",
-      "duration": "150 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_sci_01a",
@@ -98,7 +96,6 @@
       "category_id": "cat_history",
       "title": "Perang Dunia II di Asia Pasifik",
       "difficulty": "Beginner",
-      "duration": "60 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_hist_01a",
@@ -111,8 +108,7 @@
       "topic_id": "top_tech_01",
       "category_id": "cat_tech",
       "title": "Arsitektur RESTful API",
-      "difficulty": "Intermediate",
-      "duration": "120 Menit",
+      "difficulty": "Medium",
       "sub_topics": [
         {
           "sub_topic_id": "sub_tech_01a",
@@ -131,7 +127,6 @@
       "category_id": "cat_sport",
       "title": "Fisiologi dan Strategi Futsal modernos",
       "difficulty": "Beginner",
-      "duration": "45 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_sport_01a",
@@ -145,7 +140,6 @@
       "category_id": "cat_arts",
       "title": "Perkembangan Seni Renaisans",
       "difficulty": "Beginner",
-      "duration": "80 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_arts_01a",
@@ -159,7 +153,6 @@
       "category_id": "cat_econ",
       "title": "Makroekonomi: Inflasi dan Moneter",
       "difficulty": "Intermediate",
-      "duration": "100 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_econ_01a",
@@ -173,7 +166,6 @@
       "category_id": "cat_social",
       "title": "Sosiologi Perkotaan",
       "difficulty": "Intermediate",
-      "duration": "75 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_social_01a",
@@ -187,7 +179,6 @@
       "category_id": "cat_health",
       "title": "Sistem Imun Manusia",
       "difficulty": "Intermediate",
-      "duration": "110 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_health_01a",
@@ -201,7 +192,6 @@
       "category_id": "cat_lang",
       "title": "Struktur Kalimat Bahasa Jepang (N5)",
       "difficulty": "Beginner",
-      "duration": "90 Menit",
       "sub_topics": [
         {
           "sub_topic_id": "sub_lang_01a",
@@ -222,8 +212,7 @@
         "name": "Automotive Engineering & Mechanics"
       },
       "title": "Mekanisme dan Cara Kerja Mesin V8",
-      "difficulty": "Intermediate",
-      "duration": "90 Menit",
+      "difficulty": "Medium",
       "sub_topics": [
         {
           "sub_topic_id": "sub_ai_v8_01a",
