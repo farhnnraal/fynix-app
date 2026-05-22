@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
+@import "tailwindcss";
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: "Space Grotesk";
+  }
+
+  button {
+    outline: none;
+  }
+}
+
+@theme {
+  /* Primary */
+  --color-primary-50: #edeeff;
+  --color-primary-100: #c3c4ff;
+  --color-primary-300: #9f9eff;
+  --color-primary-500: #6244fc;
+  --color-primary-700: #582cd6;
+  --color-primary-900: #3c2788;
+  --color-primary-950: #25174f;
+
+  /* Shade */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Neutral (Grayscale) */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-500: #737373;
+  --color-neutral-700: #404040;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #121212;
+
+  /* Error */
+  --color-error-50: #fef2f2;
+  --color-error-100: #ffe2e2;
+  --color-error-300: #ffa2a2;
+  --color-error-500: #fb2c36;
+  --color-error-700: #c10007;
+  --color-error-900: #82181a;
+  --color-error-950: #460809;
+
+  /* Warning */
+  --color-warning-50: #fefce8;
+  --color-warning-100: #fef9c2;
+  --color-warning-300: #fff085;
+  --color-warning-500: #fdc700;
+  --color-warning-700: #d08700;
+  --color-warning-900: #894b00;
+  --color-warning-950: #432004;
+
+  /* Success */
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-300: #7bf1a8;
+  --color-success-500: #00c950;
+  --color-success-700: #008236;
+  --color-success-900: #0d542b;
+  --color-success-950: #032e15;
+
+  /* Info */
+  --color-info-50: #eff6ff;
+  --color-info-100: #dbeafe;
+  --color-info-300: #8ec5ff;
+  --color-info-500: #2b7fff;
+  --color-info-700: #1447e6;
+  --color-info-900: #1c398e;
+  --color-info-950: #162456;
+
+  /* Font Sizes + Line Heights */
+  --font-size-h1: 2rem; /* 32px */
+  --font-size-h2: 1.5rem; /* 24px */
+  --font-size-h3: 1.25rem; /* 20px */
+  --font-size-h4: 1rem; /* 16px */
+  --font-size-body: 0.875rem; /* 14px */
+  --font-size-caption: 0.75rem; /* 12px */
+  --font-size-label: 0.75rem; /* 12px */
+  --font-size-badge: 0.6875rem; /* 11px */
+  --font-size-badge-lg: 0.75rem; /* 12px */
+  --font-size-btn: 0.875rem; /* 14px */
+  --font-size-btn-lg: 1rem; /* 16px */
+
+  --line-height-h1: 2.5rem; /* 40px */
+  --line-height-h2: 2.25rem; /* 36px */
+  --line-height-h3: 1.875rem; /* 30px */
+  --line-height-h4: 1.5rem; /* 24px */
+  --line-height-body: 1.375rem; /* 22px */
+  --line-height-caption: 1.125rem; /* 18px */
+  --line-height-label: 1.125rem; /* 18px */
+  --line-height-badge: 1rem; /* 16px */
+  --line-height-badge-lg: 1.125rem; /* 18px */
+  --line-height-btn: 1.375rem; /* 22px */
+  --line-height-btn-lg: 1.5rem; /* 24px */
+
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-bold: 700;
+}
+
+@utility text-h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height-h1);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height-h2);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height-h3);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-body {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility text-caption {
+  font-size: var(--font-size-caption);
+  line-height: var(--line-height-caption);
+  font-weight: var(--font-weight-regular);
+}
+
+@utility text-label {
+  font-size: var(--font-size-label);
+  line-height: var(--line-height-label);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-badge {
+  font-size: var(--font-size-badge);
+  line-height: var(--line-height-badge);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility text-badge-lg {
+  font-size: var(--font-size-badge-lg);
+  line-height: var(--line-height-badge-lg);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility text-btn {
+  font-size: var(--font-size-btn);
+  line-height: var(--line-height-btn);
+  font-weight: var(--font-weight-medium);
+}
+
+@utility text-btn-lg {
+  font-size: var(--font-size-btn-lg);
+  line-height: var(--line-height-btn-lg);
+  font-weight: var(--font-weight-medium);
+}

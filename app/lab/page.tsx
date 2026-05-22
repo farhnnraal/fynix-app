@@ -1,6 +1,12 @@
 "use client";
 
+import React from "react";
 import { useState, useRef, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, LayoutGridIcon } from "lucide-react";
+import HeaderElement from "@/components/HeaderElement";
+import ButtonElement from "@/components/ButtonElement";
 
 type Role = "ai" | "user";
 
@@ -161,7 +167,7 @@ export default function AnswerPage() {
   };
 
   return (
-    <>
+    <div className="bg-neutral-50 flex justify-center">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
@@ -190,65 +196,6 @@ export default function AnswerPage() {
           --padding-bubble-tb: 16px;
           --gap-bubble: 16px;
           --gap-bubble-content: 8px;
-        }
-
-        /* ── Global Reset ── */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        /* ── Layout ── */
-        .answer-page {
-          display: flex;
-          flex-direction: column;
-          height: 100dvh;
-          background: var(--neutral-100);
-          font-family: var(--font-family);
-          overflow: hidden;
-        }
-
-        /* ── Header ── */
-        .answer-header {
-          flex-shrink: 0;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 16px 24px;
-          z-index: 10;
-        }
-
-        .header-left {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-        }
-
-        .back-btn {
-          width: 44px;
-          height: 44px;
-          border-radius: 9999px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
-          transition: all 0.250s ease-in-out;
-        }
-        .back-btn:hover {
-          background: var(--neutral-100);
-        }
-
-        .speaker-btn {
-          width: 44px;
-          height: 44px;
-          border-radius: 9999px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
-          transition: all 0.250s ease-in-out;
-        }
-        .speaker-btn:hover {
-          background: var(--neutral-100);
         }
 
         .header-center {
@@ -286,41 +233,12 @@ export default function AnswerPage() {
           background: var(--primary-500);
         }
 
-        .header-brand {
-          display: flex;
-          align-items: center;
-          gap: 8px;
-        }
-
-        .header-logo {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, var(--primary-300), var(--primary-500));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-
         .header-title {
           font-size: 16px;
           font-weight: 600;
           line-height: 24px;
           color: var(--neutral-900);
           letter-spacing: -0.01em;
-        }
-
-        .header-subtitle {
-          font-size: 12px;
-          font-weight: 400;
-          line-height: 18px;
-          color: var(--neutral-500);
-        }
-
-        .header-right {
-          display: flex;
-          align-items: center;
-          gap: 8px;
         }
 
         .header-icon-btn {
@@ -340,15 +258,6 @@ export default function AnswerPage() {
           border-color: var(--primary-300);
         }
 
-        .online-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: #00C950;
-          box-shadow: 0 0 0 2px #dcfce7;
-          animation: pulse-dot 2s infinite;
-        }
-
         @keyframes pulse-dot {
           0%, 100% { box-shadow: 0 0 0 2px #dcfce7; }
           50% { box-shadow: 0 0 0 4px #dcfce7; }
@@ -358,18 +267,10 @@ export default function AnswerPage() {
         .answer-main {
           flex: 1;
           overflow-y: auto;
-          padding: 24px 24px 8px;
           display: flex;
           flex-direction: column;
           gap: var(--gap-bubble);
           scroll-behavior: smooth;
-        }
-
-        .answer-main::-webkit-scrollbar { width: 4px; }
-        .answer-main::-webkit-scrollbar-track { background: transparent; }
-        .answer-main::-webkit-scrollbar-thumb {
-          background: var(--neutral-300);
-          border-radius: 99px;
         }
 
         /* Date divider */
@@ -520,9 +421,6 @@ export default function AnswerPage() {
         /* ── Footer ── */
         .answer-footer {
           flex-shrink: 0;
-          padding: 16px 24px 24px;
-          // background: #ffffff;
-          // border-top: 1px solid var(--neutral-300);
         }
 
         .footer-inner {
@@ -650,38 +548,27 @@ export default function AnswerPage() {
 
       `}</style>
 
-      <div className="answer-page">
-        {/* ── Header ── */}
-        <header className="answer-header" role="banner">
-          <div className="header-left">
-            <button className="back-btn glass" aria-label="Go back" id="back-button">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--neutral-700)">
-                <path d="m294.92-450 206.77 206.77q8.92 8.92 8.81 20.88-.12 11.96-9.42 21.27-9.31 8.69-21.08 9-11.77.31-21.08-9L205.31-454.69q-5.62-5.62-7.92-11.85-2.31-6.23-2.31-13.46t2.31-13.46q2.3-6.23 7.92-11.85l253.61-253.61q8.31-8.31 20.58-8.5 12.27-.19 21.58 8.5 9.3 9.31 9.3 21.38 0 12.08-9.3 21.39L294.92-510H750q12.77 0 21.38 8.62Q780-492.77 780-480t-8.62 21.38Q762.77-450 750-450H294.92Z" />
-              </svg>
-            </button>
-          </div>
+      <div className="max-w-[390px] mx-auto box-border h-dvh gap-4 flex flex-col justify-between p-[16px]">
 
-          <div className="header-center">
-            <div className="progress">
-              <p>Question 1</p>
-              <div className="progress-dots">
-                <span className="dot active" />
-                <span className="dot" />
-                <span className="dot" />
-                <span className="dot" />
-                <span className="dot" />
+        {/* ── Header ── */}
+        <HeaderElement elements={
+          <>
+            <ButtonElement icon={ <ArrowLeft className="w-5 h-5" /> } destination="/" />
+            <div className="header-center">
+              <div className="progress">
+                <p>Question 1</p>
+                <div className="progress-dots">
+                  <span className="dot active" />
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="dot" />
+                  <span className="dot" />
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="header-right">
-            <button className="speaker-btn glass" aria-label="Go back" id="speaker-button">
-              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="var(--neutral-700)">
-                <path d="M753.85-481q0-82.5-44.21-150.58-44.21-68.09-118.56-101.88-11.54-5.46-17-16.31-5.46-10.84-1.34-22.12 4.95-12.03 17.18-16.72 12.23-4.7 24.77.77 90.46 41.07 144.81 123.6 54.34 82.52 54.34 183.23 0 100.7-54.34 183.24-54.35 82.54-144.81 123.61-12.54 5.47-24.77.77-12.23-4.69-17.18-16.72-4.12-11.28 1.34-22.12 5.46-10.85 17-16.31 74.35-33.79 118.56-101.88Q753.85-398.5 753.85-481ZM294.62-380H182.31q-15.37 0-25.76-10.4-10.39-10.39-10.39-25.76v-127.68q0-15.37 10.39-25.76 10.39-10.4 25.76-10.4h112.31l119.69-119.69q14.38-14.38 33.11-6.49 18.73 7.89 18.73 28.18v396q0 20.29-18.73 28.18-18.73 7.89-33.11-6.49L294.62-380Zm351.53-99.96q0 37.43-15.54 70.85-15.53 33.42-41.88 56.19-8.5 5.69-17.85 1.15-9.34-4.54-9.34-15v-228.46q0-10.46 9.34-15 9.35-4.54 17.85 1.09 26.35 23.45 41.88 57.6 15.54 34.16 15.54 71.58ZM406.15-606l-86 86h-114v80h114l86 86v-252Zm-100 126Z" />
-              </svg>
-            </button>
-          </div>
-        </header>
+            <ButtonElement icon={ <LayoutGridIcon className="w-5 h-5" /> } destination="/" />
+          </> 
+        } />
 
         {/* ── Main ── */}
         <main className="answer-main" role="log" aria-live="polite" aria-label="Chat messages">
@@ -753,6 +640,6 @@ export default function AnswerPage() {
           <p className="footer-hint">Press Enter to send · Shift+Enter for new line</p>
         </footer>
       </div>
-    </>
+    </div>
   );
 }

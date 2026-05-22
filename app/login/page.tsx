@@ -4,6 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import HeaderElement from "@/components/HeaderElement";
+import ButtonElement from "@/components/ButtonElement";
+import { ArrowLeft } from "lucide-react";
 
 
 export default function LoginPage() {
@@ -39,13 +42,12 @@ export default function LoginPage() {
 
   return (
     <form className="w-full max-w-[390px] mx-auto bg-neutral-50 h-dvh p-6 flex flex-col items-center box-border relative" onSubmit={handleLogin}>
+      
       {/* Header */}
-      <div className="w-full flex flex-col mt-4">
-        <Link href="/" className="w-[38px] h-[38px] bg-white rounded-full border border-neutral-200 flex items-center justify-center text-neutral-700 hover:bg-neutral-100 transition-colors duration-200 shadow-sm self-start mb-6">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-          </svg>
-        </Link>
+      <div className="w-full flex flex-col gap-4 mt-4">
+        <HeaderElement elements={ 
+          <ButtonElement icon={ <ArrowLeft className="w-5 h-5" /> } destination="/" />
+        } />
         <div className="flex flex-col gap-1">
           <h1 className="text-h1 text-neutral-900 font-bold leading-tight">Create Your Account</h1>
           <p className="text-body text-neutral-500 flex items-center gap-1">Start your learning journey with Fenyman AI ✨</p>
