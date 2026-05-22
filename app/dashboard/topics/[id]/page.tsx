@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function TopicDetailsPage() {
   return (
-    <div className="w-full h-dvh flex flex-col max-w-[390px] mx-auto bg-neutral-50 min-h-screen relative">
+    <div className="w-full flex flex-col bg-neutral-50 min-h-screen relative">
       <div className="overflow-y-auto p-6">
         <Link
           href="/dashboard"

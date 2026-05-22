@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function TopicPage() {
   return (
-    <div className="w-full h-dvh flex flex-col items-center max-w-[390px] mx-auto bg-neutral-50 min-h-screen relative">
+    <div className="w-full flex flex-col items-center bg-neutral-50 min-h-screen relative">
       <div className="overflow-y-auto p-6">
         <div className="flex gap-4">
           <Link href="/dashboard" className="w-[38px] h-[38px] bg-white rounded-full border border-neutral-200 flex items-center justify-center text-neutral-700 hover:bg-neutral-100 transition-colors duration-200 shadow-sm self-start mb-6">

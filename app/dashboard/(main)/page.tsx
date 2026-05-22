@@ -89,7 +89,7 @@ export default function HomePage() {
   };
   return (
     <div className="w-full">
-      <div className="bg-primary-50 w-[402px] h-[500px] flex flex-col items-center text-center pt-12">
+      <div className="bg-primary-50 w-full h-[500px] flex flex-col items-center text-center pt-12">
         <h3 className="text-h4 font-medium text-neutral-900">Welcome, {name || ""}!</h3>
         <p className="text-body text-neutral-700 w-full text-wrap">What topic do you want to explore today?</p>
       </div>
@@ -139,35 +139,6 @@ export default function HomePage() {
               })
             ) : (
               <p className="col-span-2 text-center text-gray-500"></p>
-            )}
-          </div>
-        </section>
-
-        {/* Learning History Section */}
-        <section className="space-y-4 mt-10">
-          <div className="flex justify-between items-center">
-            <h2 className="text-h4 font-medium text-neutral-900">Learning History</h2>
-            <Link href="/dashboard/history" className="text-body font-medium text-primary-500">
-              See All
-            </Link>
-          </div>
-
-          <div className="space-y-4">
-            {histories.length > 0 ? (
-              histories.map((hist) => (
-                <HistoryCard
-                  key={hist.history_id}
-                  id={hist.history_id}
-                  title={hist.topic_title}
-                  date={formatDate(hist.date)}
-                  status={hist.status}
-                  level={hist.level}
-                  score={hist.score}
-                />
-              ))
-            ) : (
-              // Tampilan jika user baru mendaftar dan belum punya riwayat belajar sama sekali
-              <p className="text-center py-4 text-gray-500 text-sm">Kamu belum memulai quiz apa pun.</p>
             )}
           </div>
         </section>

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function OnboardingPage() {
   return (
-    <div className="w-full max-w-[390px] mx-auto bg-neutral-50 h-dvh p-6 flex flex-col justify-between items-center box-border">
+    <div className="w-full bg-neutral-50 min-h-dvh p-6 flex flex-col justify-between items-center box-border">
       <div className="w-full flex flex-col gap-3 mt-8">
         <h1 className="text-h3 text-neutral-900 font-medium leading-tight">Learn Faster, Master Longer</h1>
         <p className="text-body text-neutral-700 leading-relaxed">Test your understanding by explaining with your own words with Fenyman technique. ✨</p>

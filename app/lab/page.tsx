@@ -548,7 +548,7 @@ export default function AnswerPage() {
 
       `}</style>
 
-      <div className="max-w-[390px] mx-auto box-border h-dvh gap-4 flex flex-col justify-between p-[16px]">
+      <div className="w-full box-border min-h-dvh gap-4 flex flex-col justify-between p-[16px]">
 
         {/* ── Header ── */}
         <HeaderElement elements={

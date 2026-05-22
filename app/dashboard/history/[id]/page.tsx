@@ -8,7 +8,7 @@ export default function HistoryDetailPage() {
   const router = useRouter();
 
   return (
-    <div className="w-full h-dvh flex flex-col items-center max-w-[390px] mx-auto bg-neutral-50 min-h-screen pb-[161px] relative">
+    <div className="w-full flex flex-col items-center bg-neutral-50 min-h-screen pb-[161px] relative">
       <div className="overflow-y-auto p-6">
         <div className="w-full flex justify-between items-center mb-10">
           <button onClick={() => router.back()} className="w-[44px] h-[44px] bg-white rounded-full border border-neutral-100 flex items-center justify-center text-neutral-800 hover:bg-neutral-50 transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)] outline-none">
