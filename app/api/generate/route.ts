@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       contents: `
         Buatlah materi pembelajaran kustom berbasis AI berdasarkan permintaan berikut. 
         Topik: "${topic}"
-        Minimal 2-3 topics dan juga 2-3 sub topics.Buatlah minimal 5 soal essay kritis yang menantang pemahaman user berdasarkan materi tersebut
+        Buatkan minimal 3 topics[] level dari Easy, Medium dan Hard  dan juga 2-3 sub topics.Buatlah minimal 5 soal essay kritis yang menantang pemahaman user berdasarkan materi tersebut
         Kamu WAJIB merespons dengan format JSON murni mengikuti struktur ini tanpa pembuka/penutup markdown (\`\`\`json) :
         {
           "topics":[
@@ -21,7 +21,7 @@ export async function POST(request: Request) {
             "user_prompt_request": "${topic}",
             "created_at": "${new Date().toISOString()}",
             "custom_category": {
-              "custom_category_id": "cat_ai_${Date.now()}",
+              "custom_category_id": "cat_ai_${Date.now()}",   
               "name": "Kategori Otomatis AI"
             },
             "title": "Judul Modul Pembelajaran Buatan AI",

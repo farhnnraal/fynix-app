@@ -21,15 +21,15 @@ export default function HistoryPage() {
         const customTopics = localCustomTopics ? JSON.parse(localCustomTopics) : [];
 
         const enrichedHistories = parsedHistories.map((history: any) => {
-          console.log(history);
-          const isCustom = history.is_custom_topic;
-          const sourceArray = isCustom ? customTopics : topics;
+          // 1. Gabungkan semua sumber data (Statis + Kustom AI) menjadi satu bank data tunggal
+          const allAvailableTopics = [...customTopics, ...topics];
           
-          const matchedTopic = sourceArray.find((t: any) => 
-            isCustom ? t.custom_topic_id === history.topic_id : t.topic_id === history.topic_id
+          // 2. Cari kecocokan ID di dalam bank data gabungan (cek kedua kemungkinan key ID)
+          const matchedTopic = allAvailableTopics.find((t: any) => 
+            t.custom_topic_id === history.topic_id || t.topic_id === history.topic_id
           );
 
-          // Konversi nilai score menjadi status kelulusan untuk UI Card
+          // 3. Konversi nilai score menjadi status kelulusan untuk UI Card
           const finalScore = history.score || 0;
           const statusResult = finalScore >= 75 ? "Passed" : "Failed";
 
@@ -39,7 +39,8 @@ export default function HistoryPage() {
             title: matchedTopic ? matchedTopic.title : (history.title || "Unknown Topic"),
             date: history.date ? formatDisplayDate(history.date) : "No Date",
             status: statusResult as "Passed" | "Failed",
-            level: matchedTopic ? `${matchedTopic.difficulty} Level` : "General Level",
+            // Ambil langsung difficulty dari data yang cocok (Easy/Medium/Hard)
+            level: matchedTopic?.difficulty ? `${matchedTopic.difficulty} Level` : "General Level",
             score: finalScore,
           };
         });
@@ -81,6 +82,8 @@ export default function HistoryPage() {
     item.level.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  console.log(filteredHistories[0]);
+
   return (
     <div className="w-full flex flex-col gap-4 p-6 mb-20">
       <div className="w-full flex flex-col gap-1">
@@ -111,6 +114,7 @@ export default function HistoryPage() {
           <div className="text-center text-sm text-neutral-400 py-10">Loading histories...</div>
         ) : filteredHistories.length > 0 ? (
           filteredHistories.map((item) => (
+            console.log(item.topic_title),
             <HistoryCard 
               key={item.id} 
               id={item.id}

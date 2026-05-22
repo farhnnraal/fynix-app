@@ -12,6 +12,8 @@ export interface HistoryCardProps {
 export default function HistoryCard({ id, title, date, status, level, score }: HistoryCardProps) {
   const statusBadgeStyles = status === "Passed" ? "bg-green-50 text-green-500" : "bg-red-50 text-red-500";
 
+  console.log(title);
+
   return (
     <Link href={`/dashboard/history/${id}`} className="w-full bg-white border border-neutral-300 rounded-2xl p-5 shadow-[0_4px_16px_rgba(0,0,0,0.02)] flex flex-col gap-4">
       <div className="w-full flex flex-col gap-1">
