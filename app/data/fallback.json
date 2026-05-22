@@ -1,0 +1,283 @@
+{
+  "users": [
+    {
+      "user_id": "usr_9921",
+      "username": "budi_hacker",
+      "email": "budi.santoso@email.com",
+      "password_hash": "$2b$12$dQw4w9WgXcQ/Jn8v8j3vO.eKx1A2B3C4D5E6F7G8H9I0J1K2L3M4N"
+    }
+  ],
+  "categories": [
+    {
+      "category_id": "cat_math",
+      "name": "mathematics",
+      "image": "mathematics.jpg"
+    },
+    {
+      "category_id": "cat_science",
+      "name": "science",
+      "image": "science.jpg"
+    },
+    {
+      "category_id": "cat_history",
+      "name": "history",
+      "image": "history.jpg"
+    },
+    {
+      "category_id": "cat_tech",
+      "name": "technology",
+      "image": "technology.jpg"
+    },
+    {
+      "category_id": "cat_sport",
+      "name": "sport",
+      "image": "sport.jpg"
+    },
+    {
+      "category_id": "cat_arts",
+      "name": "arts-and-culture",
+      "image": "arts-and-culture.jpg"
+    },
+    {
+      "category_id": "cat_econ",
+      "name": "economics",
+      "image": "economics.jpg"
+    },
+    {
+      "category_id": "cat_social",
+      "name": "social-science",
+      "image": "social-science.jpg"
+    },
+    {
+      "category_id": "cat_health",
+      "name": "health-and-biology",
+      "image": "health-and-biology.jpg"
+    },
+    {
+      "category_id": "cat_lang",
+      "name": "language",
+      "image": "language.jpg"
+    }
+  ],
+  "topics": [
+    {
+      "topic_id": "top_math_01",
+      "category_id": "cat_math",
+      "title": "Aljabar Linear Dasar",
+      "difficulty": "Intermediate",
+      "duration": "90 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_math_01a",
+          "title": "Matriks dan Operasinya",
+          "materi_default": "Memahami penjumlahan, perkalian matriks, dan pencarian determinan."
+        },
+        {
+          "sub_topic_id": "sub_math_01b",
+          "title": "Sistem Persamaan Linear",
+          "materi_default": "Menyelesaikan SPL menggunakan metode eliminasi Gauss-Jordan."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_science_01",
+      "category_id": "cat_science",
+      "title": "Fisika Kuantum untuk Pemula",
+      "difficulty": "Advanced",
+      "duration": "150 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_sci_01a",
+          "title": "Dualisme Gelombang-Partikel",
+          "materi_default": "Eksperimen celah ganda dan teori foton Einstein."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_history_01",
+      "category_id": "cat_history",
+      "title": "Perang Dunia II di Asia Pasifik",
+      "difficulty": "Beginner",
+      "duration": "60 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_hist_01a",
+          "title": "Restorasi Meiji hingga Pearl Harbor",
+          "materi_default": "Latar belakang ekspansi militer Jepang di Asia."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_tech_01",
+      "category_id": "cat_tech",
+      "title": "Arsitektur RESTful API",
+      "difficulty": "Intermediate",
+      "duration": "120 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_tech_01a",
+          "title": "HTTP Methods & Status Codes",
+          "materi_default": "Penggunaan GET, POST, PUT, DELETE serta penanganan response code yang tepat."
+        },
+        {
+          "sub_topic_id": "sub_tech_01b",
+          "title": "Statelessness dan Autentikasi JWT",
+          "materi_default": "Konsep arsitektur stateless dan pengamanan endpoint dengan token."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_sport_01",
+      "category_id": "cat_sport",
+      "title": "Fisiologi dan Strategi Futsal modernos",
+      "difficulty": "Beginner",
+      "duration": "45 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_sport_01a",
+          "title": "Formasi Rotasi 2-2 dan 4-0",
+          "materi_default": "Cara memecah pertahanan lawan dengan pergerakan dinamis antar lini."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_arts_01",
+      "category_id": "cat_arts",
+      "title": "Perkembangan Seni Renaisans",
+      "difficulty": "Beginner",
+      "duration": "80 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_arts_01a",
+          "title": "Teknik Chiaroscuro",
+          "materi_default": "Penggunaan kontras gelap dan terang yang ekstrem untuk memberikan efek volume pada lukisan."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_econ_01",
+      "category_id": "cat_econ",
+      "title": "Makroekonomi: Inflasi dan Moneter",
+      "difficulty": "Intermediate",
+      "duration": "100 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_econ_01a",
+          "title": "Kebijakan Suku Bunga Bank Sentral",
+          "materi_default": "Bagaimana penyesuaian suku bunga mengontrol peredaran uang dan menekan inflasi."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_social_01",
+      "category_id": "cat_social",
+      "title": "Sosiologi Perkotaan",
+      "difficulty": "Intermediate",
+      "duration": "75 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_social_01a",
+          "title": "Dampak Gentrifikasi",
+          "materi_default": "Pergeseran demografi dan ekonomi di wilayah urban akibat modernisasi kawasan lama."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_health_01",
+      "category_id": "cat_health",
+      "title": "Sistem Imun Manusia",
+      "difficulty": "Intermediate",
+      "duration": "110 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_health_01a",
+          "title": "Respon Imun Spesifik vs Non-Spesifik",
+          "materi_default": "Cara kerja sel T, sel B, dan makrofag dalam melumpuhkan patogen."
+        }
+      ]
+    },
+    {
+      "topic_id": "top_lang_01",
+      "category_id": "cat_lang",
+      "title": "Struktur Kalimat Bahasa Jepang (N5)",
+      "difficulty": "Beginner",
+      "duration": "90 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_lang_01a",
+          "title": "Penggunaan Partikel Wa, Ga, dan Wo",
+          "materi_default": "Menentukan subjek, objek, dan topik utama dalam tata bahasa dasar Jepang."
+        }
+      ]
+    }
+  ],
+  "custom_ai_topics": [
+    {
+      "custom_topic_id": "top_ai_v8_001",
+      "user_id": "usr_9921",
+      "user_prompt_request": "Belajar mekanisme kerja mesin mobil V8",
+      "created_at": "2026-05-22T10:15:00Z",
+      "custom_category": {
+        "custom_category_id": "cat_ai_auto_99",
+        "name": "Automotive Engineering & Mechanics"
+      },
+      "title": "Mekanisme dan Cara Kerja Mesin V8",
+      "difficulty": "Intermediate",
+      "duration": "90 Menit",
+      "sub_topics": [
+        {
+          "sub_topic_id": "sub_ai_v8_01a",
+          "title": "Siklus Empat Langkah (Four-Stroke) & Urutan Pembakaran",
+          "materi_default": "Penjelasan detail mengenai langkah isap, kompresi, usaha, dan buang pada silinder V8, serta bagaimana firing order menjaga keseimbangan mesin."
+        },
+        {
+          "sub_topic_id": "sub_ai_v8_01b",
+          "title": "Konfigurasi Crankshaft: Crossplane vs Flatplane",
+          "materi_default": "Perbedaan getaran, distribusi bobot, dan karakteristik suara khas raungan Amerika (Crossplane) vs jeritan mobil sport Eropa (Flatplane)."
+        },
+        {
+          "sub_topic_id": "sub_ai_v8_01c",
+          "title": "Sistem Katup (Valvetrain) dan Manajemen Udara",
+          "materi_default": "Mekanisme Overhead Camshaft (OHC) vs Pushrod (OHV) dalam mengatur efisiensi pasokan bahan bakar dan udara ke ruang bakar V8."
+        }
+      ]
+    }
+  ],
+  "learning_histories": [
+    {
+      "history_id": "hist_001",
+      "user_id": "usr_9921",
+      "topic_id": "top_tech_01",
+      "is_custome_topic": false,
+      "topic_title": "Arsitektur RESTful API",
+      "date": "2026-05-22T08:00:00Z",
+      "status": "Completed",
+      "level": "Intermediate",
+      "score": 100,
+      "ai_feedback": "Luar biasa! Kamu memahami konsep RESTful API dan struktur HTTP method dengan sangat matang.",
+      "question_breakdown": [
+        {
+          "question_id": "q_tech_01",
+          "question_number": 1,
+          "status": "Correct",
+          "question": "Manakah HTTP method yang paling tepat digunakan untuk memperbarui sebagian data resource?",
+          "user_answer": "PATCH",
+          "ai_feedback": "Benar. PATCH digunakan untuk partial update, berbeda dengan PUT yang mengganti seluruh resource."
+        }
+      ]
+    },
+    {
+      "history_id": "hist_002",
+      "user_id": "usr_9921",
+      "topic_id": "top_math_01",
+      "is_custome_topic": true,
+      "topic_title": "Aljabar Linear Dasar",
+      "date": "2026-05-21T14:15:00Z",
+      "status": "In Progress",
+      "level": "Intermediate",
+      "score": 0,
+      "ai_feedback": "Selesaikan kuis untuk mendapatkan feedback analisis dari AI.",
+      "question_breakdown": []
+    }
+  ]
+}
