@@ -1,15 +1,44 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 
+
 export default function LoginPage() {
+  const router = useRouter();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+
+    if (!email || !password) {
+      alert("Email dan Password wajib diisi!");
+      return;
+    }
+
+    const existingUsers = JSON.parse(localStorage.getItem("users") || "[]");
+
+    const validUser = existingUsers.find(
+      (u: any) => u.email === email && u.password === password
+    );
+
+    if (validUser) {
+      alert(`Login berhasil! Selamat datang, ${validUser.username}.`);
+      
+      localStorage.setItem("currentUser", JSON.stringify(validUser));
+
+      router.push("/dashboard");
+    } else {
+      alert("Email atau Password salah!");
+    }
+  };
+
   return (
-    <div className="w-full max-w-[390px] mx-auto bg-neutral-50 h-dvh p-6 flex flex-col items-center box-border relative">
+    <form className="w-full max-w-[390px] mx-auto bg-neutral-50 h-dvh p-6 flex flex-col items-center box-border relative" onSubmit={handleLogin}>
       {/* Header */}
       <div className="w-full flex flex-col mt-4">
         <Link href="/" className="w-[38px] h-[38px] bg-white rounded-full border border-neutral-200 flex items-center justify-center text-neutral-700 hover:bg-neutral-100 transition-colors duration-200 shadow-sm self-start mb-6">
@@ -28,7 +57,7 @@ export default function LoginPage() {
         <div className="w-[220px] h-[220px] relative -mb-[26.5px] z-10">
           <Image src="/images/mascot-auth.png" alt="Fenyman AI Mascot Welcoming" fill priority className="object-contain" />
         </div>
-        <form className="w-full flex flex-col gap-3 bg-transparent" onSubmit={(e) => e.preventDefault()}>
+        <div className="w-full flex flex-col gap-3 bg-transparent">
           {/* Input Email */}
           <div className="w-full relative flex items-center">
             <span className="absolute left-[16px] text-neutral-400">
@@ -37,7 +66,10 @@ export default function LoginPage() {
               </svg>
             </span>
             <input
+              required
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email Address"
               className="w-full bg-white border border-neutral-200 rounded-[12px] pl-[48px] pr-[16px] py-[14px] text-body text-neutral-800 placeholder-neutral-400 outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-200"
             />
@@ -51,8 +83,10 @@ export default function LoginPage() {
               </svg>
             </span>
             <input
+              required
               type={showPassword ? "text" : "password"}
               placeholder="Password"
+              min={8}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="w-full bg-white border border-neutral-200 rounded-[12px] pl-[48px] pr-[48px] py-[14px] text-body text-neutral-800 placeholder-neutral-400 outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-all duration-200"
@@ -75,7 +109,7 @@ export default function LoginPage() {
               )}
             </button>
           </div>
-        </form>
+        </div>
       </div>
 
       {/* Footer */}
@@ -90,6 +124,6 @@ export default function LoginPage() {
           </Link>
         </p>
       </div>
-    </div>
+    </form>
   );
 }

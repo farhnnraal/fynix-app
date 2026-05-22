@@ -9,6 +9,7 @@ function getFallbackData() {
   try {
     const filePath = path.join(process.cwd(), "data", "fallback.json");
     const jsonData = fs.readFileSync(filePath, "utf-8");
+
     return JSON.parse(jsonData);
   } catch (error) {
     console.error("Gagal membaca file fallback.json:", error);

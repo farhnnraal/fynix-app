@@ -28,9 +28,6 @@ export default function StorageInitializer({ initialData }: StorageInitializerPr
 
       if (!existingData) {
         localStorage.setItem(key, JSON.stringify(data || []));
-        console.log(`[FennyTech Seed] Berhasil menyuntikkan data untuk key: ${key}`);
-      } else {
-        console.log(`[FennyTech Seed] Key ${key} sudah terisi. Skip seeding.`);
       }
     });
   }, [initialData]);

@@ -1,10 +1,10 @@
 {
   "users": [
     {
-      "user_id": "usr_9921",
+      "user_id": "usr_1",
       "username": "budi_hacker",
       "email": "budi.santoso@email.com",
-      "password_hash": "$2b$12$dQw4w9WgXcQ/Jn8v8j3vO.eKx1A2B3C4D5E6F7G8H9I0J1K2L3M4N"
+      "password": "$2b$12$dQw4w9WgXcQ/Jn8v8j3vO.eKx1A2B3C4D5E6F7G8H9I0J1K2L3M4N"
     }
   ],
   "categories": [

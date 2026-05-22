@@ -41,7 +41,6 @@ export interface ICustomAiTopic {
   created_at: string;          
   custom_category: ICustomCategory;
   title: string;
-  difficulty: string;
   duration: string;
   sub_topics: ISubTopic[];
 }
