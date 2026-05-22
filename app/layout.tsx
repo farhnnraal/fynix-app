@@ -1,9 +1,12 @@
+import "@/app/global.css";
 import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import StorageInitializer from "@/components/StorageInitializer";
-import "./globals.css";
+import { ArrowLeft } from "lucide-react";
+import HeaderElement from "@/components/HeaderElement";
+import ButtonElement from "@/components/ButtonElement";
 
 function getFallbackData() {
   try {
@@ -34,9 +37,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   const fallbackData = getFallbackData();
 
   return (
@@ -44,10 +47,12 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full w-screen flex flex-col bg-neutral-50">
         <StorageInitializer initialData={fallbackData} />
-        {children}
-        </body>
+
+        { children }
+
+      </body>
     </html>
   );
 }
