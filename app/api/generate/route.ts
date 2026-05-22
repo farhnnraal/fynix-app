@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import { GoogleGenAI  } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_TOKEN });
 
 export async function POST(request: Request) {
-  
   try {
-    const { topic,user_id } = await request.json();
+    const { topic, user_id } = await request.json();
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
@@ -16,7 +15,7 @@ export async function POST(request: Request) {
         Minimal 2-3 topics dan juga 2-3 sub topics.Buatlah minimal 5 soal essay kritis yang menantang pemahaman user berdasarkan materi tersebut
         Kamu WAJIB merespons dengan format JSON murni mengikuti struktur ini tanpa pembuka/penutup markdown (\`\`\`json) :
         {
-          "custom_ai_topics:[
+          "topics":[
             "custom_topic_id": "top_ai_${Date.now()}",
             "user_id": "${user_id}",
             "user_prompt_request": "${topic}",
@@ -33,6 +32,12 @@ export async function POST(request: Request) {
                 "title": "Judul Sub Bab Pertama",
                 "materi_default": "Penjelasan materi yang sangat mendalam dan komprehensif..."
               }
+            ],
+            "questions": [
+              {
+                "question_id": "q_ai_${Date.now()}_1",
+                "question": "Pertanyaan essay kritis tingkat tinggi pertama mengenai isi materi di atas..."
+              }
             ]
           ]
         }
@@ -41,7 +46,7 @@ export async function POST(request: Request) {
         responseMimeType: "application/json",
       },
     });
-    
+
     const responseText = response.text;
 
     if (!responseText) {
@@ -50,12 +55,8 @@ export async function POST(request: Request) {
 
     const cleanJsonData = JSON.parse(responseText);
     return NextResponse.json(cleanJsonData, { status: 200 });
-
   } catch (error) {
     console.error("Gemini SDK Baru API Error:", error);
-    return NextResponse.json(
-      { error: "Gagal memuat data dari kecerdasan buatan," + " " + error || "" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Gagal memuat data dari kecerdasan buatan," + " " + error || "" }, { status: 500 });
   }
 }

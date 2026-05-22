@@ -114,7 +114,7 @@ export default function HomePage() {
               <label className="block text-label">Learning Topic</label>
               <input
                 type="text"
-                className="w-full text-body"
+                className="w-full text-body outline-none"
                 placeholder="Type topic that you want to learn here..."
                 value={topic}
                 onChange={(e) => handleTopicChange(e.target.value)}

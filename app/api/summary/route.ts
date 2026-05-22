@@ -2,15 +2,25 @@
 import { NextResponse } from "next/server";
 import { GoogleGenAI } from "@google/genai";
 
-const ai = new GoogleGenAI({apiKey: process.env.GEMINI_API_TOKEN});
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_TOKEN });
+
+interface AnswerList {
+  question: string;
+  answer: string;
+}
+
+interface RequestObject {
+  topic: string;
+  answerList: AnswerList[];
+}
 
 export async function POST(request: Request) {
   try {
-    const { topic, answerList } = await request.json();
+    const { topic, answerList } = (await request.json()) as RequestObject;
 
-  const response = await ai.models.generateContent({
-    model: "gemini-2.5-flash",
-    contents: `
+    const response = await ai.models.generateContent({
+      model: "gemini-3-flash-preview",
+      contents: `
       Kamu adalah sistem evaluasi AI dari FennyTech yang kritis, objektif, mendalam, dan tidak mudah percaya begitu saja.
       User baru saja menyelesaikan kelas essay tentang topik "${topic}".
 
@@ -35,16 +45,18 @@ export async function POST(request: Request) {
         "question_breakdown": [
           {
             "question_id": "Isi dengan question_id yang sesuai dari data input",
+            "question": "Isi dengan pertanyaan user",
+            "answer": "Isi dengan jawaban user",
             "status": "Correct", 
             "ai_feedback": "Tulis analisis mikro di sini (MAKSIMAL 2 KALIMAT). Langsung tunjuk poin benar atau letak miskonsepsinya dengan chill tanpa membocorkan jawaban yang benar."
           }
         ]
       }
     `,
-    config: { 
-      responseMimeType: "application/json" 
-    },
-  });
+      config: {
+        responseMimeType: "application/json",
+      },
+    });
 
     return NextResponse.json(JSON.parse(response.text || "{}"), { status: 200 });
   } catch (error) {

@@ -22,8 +22,8 @@ export default function MaterialPage() {
   const router = useRouter();
   const params = useParams();
   const searchParams = useSearchParams();
-  
-  const topicIdFromUrl = params.id as string; 
+
+  const topicIdFromUrl = params.id as string;
   const isStaticQuery = searchParams.get("is_static") === "true";
 
   const [topic, setTopic] = useState<TopicData | null>(null);
@@ -74,7 +74,9 @@ export default function MaterialPage() {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-neutral-50 p-6 text-center">
         <p className="text-neutral-600 mb-4">Maaf, materi pembahasan tidak ditemukan.</p>
-        <button onClick={() => router.back()} className="text-primary-500 font-bold hover:underline">Kembali</button>
+        <button onClick={() => router.back()} className="text-primary-500 font-bold hover:underline">
+          Kembali
+        </button>
       </div>
     );
   }
@@ -94,12 +96,10 @@ export default function MaterialPage() {
 
         {/* Judul Utama Bab / Topik */}
         <div className="mb-8">
-          <span className="text-xs font-bold text-primary-500 uppercase tracking-wider block mb-1">
-            {topic.difficulty} Level
-          </span>
+          <span className="text-xs font-bold text-primary-500 uppercase tracking-wider block mb-1">{topic.difficulty} Level</span>
           <h2 className="text-h2 font-black text-neutral-900 leading-tight">{topic.title}</h2>
         </div>
-        
+
         {/* Looping Seluruh Konten Sub-Topik (Title + Teks Materi) */}
         <div className="space-y-8">
           {topic.sub_topics && topic.sub_topics.length > 0 ? (
@@ -109,7 +109,7 @@ export default function MaterialPage() {
                 <h4 className="text-body-lg font-bold text-neutral-800">
                   {index + 1}. {sub.title}
                 </h4>
-                
+
                 {/* Box Konten Teks Materi */}
                 <div className="text-body text-neutral-600 leading-relaxed bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm whitespace-pre-line">
                   {sub.materi_default}
@@ -117,9 +117,7 @@ export default function MaterialPage() {
               </div>
             ))
           ) : (
-            <div className="text-center text-sm text-neutral-400 py-6">
-              Belum ada materi tertulis untuk topik ini.
-            </div>
+            <div className="text-center text-sm text-neutral-400 py-6">Belum ada materi tertulis untuk topik ini.</div>
           )}
         </div>
       </div>
@@ -127,7 +125,7 @@ export default function MaterialPage() {
       {/* Floating Bottom Action Bar */}
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-white rounded-t-3xl z-40 space-y-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] border-t border-neutral-100">
         <Link
-          href={`/lab?topic_id=${topic.topic_id || topic.custom_topic_id}`}
+          href={`/dashboard/quiz/${topic.topic_id || topic.custom_topic_id}`}
           className="w-full px-4 py-3 text-btn-lg bg-primary-500 flex items-center justify-center text-white rounded-lg font-semibold hover:bg-primary-600 transition-colors shadow-md shadow-primary-500/10 text-center"
         >
           Start Feynman Test
