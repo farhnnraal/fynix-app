@@ -89,9 +89,9 @@ export default function HomePage() {
   };
   return (
     <div className="w-full">
-      <div className="bg-primary-50 w-[402px] h-screen flex flex-col items-center text-center pt-12">
-        <h3 className="text-h3">Welcome, {name || ""}!</h3>
-        <p className="text-body text-neutral-500">What topic do you want to explore today?</p>
+      <div className="bg-primary-50 w-[402px] h-[500px] flex flex-col items-center text-center pt-12">
+        <h3 className="text-h4 font-medium text-neutral-900">Welcome, {name || ""}!</h3>
+        <p className="text-body text-neutral-700 w-full text-wrap">What topic do you want to explore today?</p>
       </div>
 
       {/* Main Container */}
@@ -105,7 +105,7 @@ export default function HomePage() {
             <div className="w-full bg-white border border-neutral-300 rounded-lg px-4 py-3">
               <input type="text" className="w-full text-body outline-none text-neutral-700" placeholder="Type topic that you want to learn here..." />
             </div>
-            <button type="submit" className="cursor-pointer bg-primary-500 px-3 py-2 rounded-lg w-full text-white text-btn">
+            <button type="submit" className="cursor-pointer bg-primary-500 p-[16px] rounded-full w-full text-white text-body font-medium">
               Start Learning Now
             </button>
           </form>
@@ -119,8 +119,8 @@ export default function HomePage() {
         {/* Topic Suggestions Section */}
         <section className="space-y-4">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold text-neutral-900">Topic Suggestions</h2>
-            <Link href="/dashboard/topics" className="text-sm font-bold text-primary-500 hover:underline">
+            <h2 className="text-body font-medium text-neutral-700">Topic Suggestions</h2>
+            <Link href="/dashboard/topics" className="text-[14px] font-medium text-primary-500">
               See All
             </Link>
           </div>
@@ -146,8 +146,8 @@ export default function HomePage() {
         {/* Learning History Section */}
         <section className="space-y-4 mt-10">
           <div className="flex justify-between items-center">
-            <h2 className="text-lg font-bold text-neutral-900">Learning History</h2>
-            <Link href="/dashboard/history" className="text-sm font-bold text-primary-500 hover:underline">
+            <h2 className="text-h4 font-medium text-neutral-900">Learning History</h2>
+            <Link href="/dashboard/history" className="text-body font-medium text-primary-500">
               See All
             </Link>
           </div>

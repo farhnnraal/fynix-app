@@ -12,8 +12,8 @@ export default function TopicPage() {
             </svg>
           </Link>
         </div>
-        <h3 className="text-h3 font-bold text-neutral-900 mb-2">Topic Categories</h3>
-        <p className="text-body text-neutral-500 mb-4">Explore various topics and find out what to learn</p>
+        <h3 className="text-h3 font-medium text-neutral-900 mb-2">Topic Categories</h3>
+        <p className="text-body text-neutral-700 mb-4">Explore various topics and find out what to learn</p>
         <div className="grid grid-cols-2 gap-4">
           <TopicCard imageUrl="/images/mathematics.jpg" name="Mathematics" total={7} />
           <TopicCard imageUrl="/images/science.jpg" name="Science" total={7} />

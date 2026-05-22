@@ -553,7 +553,7 @@ export default function AnswerPage() {
         {/* ── Header ── */}
         <HeaderElement elements={
           <>
-            <ButtonElement icon={ <ArrowLeft className="w-5 h-5" /> } destination="/" />
+            <ButtonElement icon={ <ArrowLeft className="w-7 h-7" /> } destination="/" />
             <div className="header-center">
               <div className="progress">
                 <p>Question 1</p>

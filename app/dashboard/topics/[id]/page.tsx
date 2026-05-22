@@ -20,8 +20,8 @@ export default function TopicDetailsPage() {
         <div className="p-4 rounded-2xl bg-primary-500 flex items-center gap-4 mb-4">
           <Image src="/images/mathematics.jpg" alt="mathematics" width={80} height={80} className="rounded-full" />
           <div className="space-y-1">
-            <h3 className="text-h3 text-white">Mathematics</h3>
-            <p className="text-caption text-neutral-200">Everything that are related to mathematics knowledge</p>
+            <h3 className="text-h3 font-medium text-white">Mathematics</h3>
+            <p className="text-body text-neutral-200">Everything that are related to mathematics knowledge</p>
           </div>
         </div>
 

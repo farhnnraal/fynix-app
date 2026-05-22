@@ -18,8 +18,8 @@ export default function MaterialPage() {
           </svg>
         </button>
 
-        <h3 className="text-h3 mb-2">Topik Pembahasan</h3>
-        <p className="text-body text-neutral-500">
+        <h3 className="text-h3 font-medium mb-2">Topik Pembahasan</h3>
+        <p className="text-body text-neutral-700">
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et corporis temporibus ea nihil at fuga, nobis labore ipsam dignissimos eum
           maiores itaque corrupti quaerat sunt enim laudantium repellat dolores cum sit velit ipsum. Quam id odio reiciendis cum ad voluptatem alias
           consequatur ducimus, quos praesentium culpa aliquid totam ipsam aperiam.
@@ -29,8 +29,7 @@ export default function MaterialPage() {
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-white rounded-t-3xl z-40 space-y-4">
         <Link
           href="/lab"
-          type="button"
-          className="w-full px-4 py-3 text-btn-lg bg-primary-500 flex items-center justify-center text-white rounded-lg"
+          className="w-full p-[16px] text-body bg-primary-500 flex items-center justify-center text-white rounded-full font-medium"
         >
           Start Fenyman Test
         </Link>

@@ -16,7 +16,7 @@ export default function HistoryDetailPage() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
             </svg>
           </button>
-          <h3 className="text-h3 font-bold text-neutral-900">Evaluation Result</h3>
+          <h3 className="text-h3 font-medium text-neutral-900">Evaluation Result</h3>
           <button type="button" className="w-[44px] h-[44px] bg-white rounded-full border border-neutral-100 flex items-center justify-center text-neutral-800 hover:bg-neutral-50 transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)] outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-neutral-700">
               <path
@@ -67,8 +67,8 @@ export default function HistoryDetailPage() {
 
         {/* AI Feedback */}
         <section className="mb-6">
-          <h3 className="text-h3 mb-1">AI Feedback</h3>
-          <p className="text-body text-neutral-500 mb-4">A quick summary of your learning performance</p>
+          <h3 className="text-h3 font-medium mb-1">AI Feedback</h3>
+          <p className="text-body text-neutral-700 mb-4">A quick summary of your learning performance</p>
           <div className="p-4 rounded-lg bg-white border border-neutral-300 text-caption text-neutral-500">
             Excellent work! You have demonstrated a deep understanding of Artificial Intelligence concepts. Your explanations are clear and well-structured. Just review the minor points in the breakdown below to hit that perfect score next time!
           </div>
@@ -76,8 +76,8 @@ export default function HistoryDetailPage() {
 
         {/* Question Breakdown */}
         <section>
-          <h3 className="text-h3 mb-1">Question Breakdown</h3>
-          <p className="text-body text-neutral-500 mb-4">Your understanding level per question</p>
+          <h3 className="text-h3 font-medium mb-1">Question Breakdown</h3>
+          <p className="text-body text-neutral-700 mb-4">Your understanding level per question</p>
           <div className="space-y-4">
             <QuestionBreakdownAccordion
               title="Question 1"
@@ -105,13 +105,10 @@ export default function HistoryDetailPage() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-6 bg-white rounded-t-3xl z-40 space-y-4">
-        {/* Button 1: Continue Learning (Primary) */}
-        <button type="button" className="w-full px-4 py-3 text-btn-lg bg-primary-500 flex items-center justify-center text-white rounded-lg">
+        <button type="button" className="w-full p-[16px] text-body bg-primary-500 flex items-center justify-center text-white rounded-full font-medium">
           Continue Learning
         </button>
-
-        {/* Button 2: See Material Summary (Neutral) */}
-        <button type="button" className="w-full px-4 py-3 text-btn-lg bg-white border border-neutral-300 flex items-center justify-center rounded-lg">
+        <button type="button" className="w-full p-[16px] text-body bg-white border border-neutral-200 flex items-center justify-center rounded-full font-medium text-neutral-700">
           See Material Summary
         </button>
       </div>
