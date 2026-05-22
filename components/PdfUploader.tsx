@@ -1,11 +1,12 @@
 // components/PdfUploader.tsx
 "use client";
 import { useState } from "react";
-import pdfParse from "pdf-parse";
+import { useRouter } from "next/navigation";
+import { LearningResult } from "@/.next/types/learning";
 
 export default function PdfUploader() {
-  const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -20,8 +21,6 @@ export default function PdfUploader() {
       const res = await fetch("/api/generate-from-pdf", {
         method: "POST",
         body: formData,
-        // ⚠️ Do NOT set Content-Type header manually — 
-        // the browser sets it with the correct boundary for FormData
       });
 
       if (!res.ok) {
@@ -30,10 +29,11 @@ export default function PdfUploader() {
       }
 
       const data = await res.json();
-      setResult(data);
-      console.log("Generated learning material:", data);
+      localStorage.setItem("activeMaterial", JSON.stringify(data));
+      router.push("/dashboard/material/generated");
     } catch (err: any) {
       console.error("Upload failed:", err.message);
+      alert("Gagal mengunggah PDF: " + err.message);
     } finally {
       setLoading(false);
     }
@@ -43,8 +43,7 @@ export default function PdfUploader() {
     <div>
       <label htmlFor="pdfupload" style={{ display: loading ? "none" : "block" }} className="cursor-pointer text-neutral-700">Use PDF File</label>
       <input type="file" id="pdfupload" accept=".pdf" className="hidden" onChange={handleUpload}/>
-      {loading && <p>Processing PDF...</p>}
-      {result && <pre>{JSON.stringify(result, null, 2)}</pre>}
+      {loading && <p className="text-body text-neutral-600">Processing PDF and Generating Modules...</p>}
     </div>
   );
 }

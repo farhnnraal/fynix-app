@@ -1,10 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import LearningMaterial from "@/components/LearningMaterial";
+import { LearningResult } from "@/.next/types/learning";
 
 export default function MaterialPage() {
   const router = useRouter();
+  const [materialData, setMaterialData] = useState<LearningResult | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("activeMaterial");
+    if (stored) {
+      try {
+        setMaterialData(JSON.parse(stored));
+      } catch (err) {
+        console.error("Failed to parse activeMaterial", err);
+      }
+    }
+  }, []);
 
   return (
     <div className="w-full flex flex-col bg-neutral-50 min-h-screen pb-[161px] relative">
@@ -18,18 +33,24 @@ export default function MaterialPage() {
           </svg>
         </button>
 
-        <h3 className="text-h3 font-medium mb-2">Topik Pembahasan</h3>
-        <p className="text-body text-neutral-700">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et corporis temporibus ea nihil at fuga, nobis labore ipsam dignissimos eum
-          maiores itaque corrupti quaerat sunt enim laudantium repellat dolores cum sit velit ipsum. Quam id odio reiciendis cum ad voluptatem alias
-          consequatur ducimus, quos praesentium culpa aliquid totam ipsam aperiam.
-        </p>
+        {materialData ? (
+          <LearningMaterial data={materialData} />
+        ) : (
+          <>
+            <h3 className="text-h3 font-medium mb-2">Topik Pembahasan</h3>
+            <p className="text-body text-neutral-700">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et corporis temporibus ea nihil at fuga, nobis labore ipsam dignissimos eum
+              maiores itaque corrupti quaerat sunt enim laudantium repellat dolores cum sit velit ipsum. Quam id odio reiciendis cum ad voluptatem alias
+              consequatur ducimus, quos praesentium culpa aliquid totam ipsam aperiam.
+            </p>
+          </>
+        )}
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 p-6 bg-white rounded-t-3xl z-40 space-y-4">
+      <div className="fixed bottom-0 left-0 right-0 p-6 bg-white rounded-t-3xl shadow-[0_-4px_24px_rgba(0,0,0,0.06)] z-40 max-w-md mx-auto">
         <Link
           href="/lab"
-          className="w-full p-[16px] text-body bg-primary-500 flex items-center justify-center text-white rounded-full font-medium"
+          className="w-full p-[16px] text-body bg-primary-500 flex items-center justify-center text-white rounded-full font-medium shadow-sm hover:bg-primary-600 transition-colors"
         >
           Start Fenyman Test
         </Link>
