@@ -23,7 +23,7 @@ const INITIAL_MESSAGES: Message[] = [
 function AIAvatar() {
   return (
     <div className="ai-avatar" aria-hidden="true">
-      <img src="/elements/fynix-ai.jpeg" alt="" />
+      <img src="/images/fynix-ai.jpeg" alt="" />
     </div>
   );
 }
