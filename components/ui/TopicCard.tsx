@@ -8,6 +8,8 @@ interface TopicCardProps {
   total: number;
 }
 
+
+
 export default function TopicCard({ id, imageUrl, name, total }: TopicCardProps) {
   return (
     <Link href={`/dashboard/topics/${id}`} className="p-[16px] bg-white border border-neutral-300 rounded-xl">

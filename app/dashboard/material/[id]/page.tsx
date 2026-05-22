@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import LearningMaterial from "@/components/LearningMaterial";
 import { LearningResult } from "@/.next/types/learning";
 

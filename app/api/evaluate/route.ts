@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     const { question, userAnswer } = await request.json();
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: `
                 Bertindaklah sebagai Dosen/Mentor AI yang kritis, objektif, dan tidak mudah percaya begitu saja. User baru saja menjawab sebuah soal essay.
 

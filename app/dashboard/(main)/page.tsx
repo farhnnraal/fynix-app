@@ -153,7 +153,7 @@ export default function HomePage() {
                 return (
                   <TopicCard
                     key={cat.category_id}
-                    id={cat.category_id}
+                    id={cat.category_id + "?is_static=true"}
                     imageUrl={`/images/${cat.image}`}
                     name={cat.name}
                     total={cat.totalTopicsCount || 0}

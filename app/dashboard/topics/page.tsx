@@ -35,6 +35,8 @@ export default function TopicPage() {
         console.error("Gagal memproses data categories atau topics:", error);
       }
     }
+
+    
   }, []);
   return (
     <div className="w-full flex flex-col items-center bg-neutral-50 min-h-screen relative">
@@ -52,12 +54,13 @@ export default function TopicPage() {
           {categories.length > 0 ? (
             // 3. Render seluruh data kategori yang ada
             categories.map((cat) => {
+              console.log(cat);
               // Bikin huruf kapital di awal kata (contoh: "astronomy" -> "Astronomy")
               const formattedName = cat.name.charAt(0).toUpperCase() + cat.name.slice(1);
               
               return (
                 <TopicCard
-                  key={cat.category_id}
+                  id={cat.category_id + '?is_static=true'}
                   imageUrl={`/images/${cat.image}`}
                   name={formattedName}
                   total={cat.totalTopicsCount || 0} // Otomatis dinamis sesuai hitungan di atas

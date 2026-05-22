@@ -20,12 +20,11 @@ export default function HistoryPage() {
         const topics = localTopics ? JSON.parse(localTopics) : [];
         const customTopics = localCustomTopics ? JSON.parse(localCustomTopics) : [];
 
-        // Gabungkan data history dengan metadata judul dan level dari tabel master topic
         const enrichedHistories = parsedHistories.map((history: any) => {
+          console.log(history);
           const isCustom = history.is_custom_topic;
           const sourceArray = isCustom ? customTopics : topics;
           
-          // Cari judul dan difficulty asli berdasarkan topic_id
           const matchedTopic = sourceArray.find((t: any) => 
             isCustom ? t.custom_topic_id === history.topic_id : t.topic_id === history.topic_id
           );
@@ -38,7 +37,7 @@ export default function HistoryPage() {
             // Gunakan history_id sebagai key unik utama untuk routing detail
             id: history.history_id, 
             title: matchedTopic ? matchedTopic.title : (history.title || "Unknown Topic"),
-            date: history.created_at ? formatDisplayDate(history.created_at) : "No Date",
+            date: history.date ? formatDisplayDate(history.date) : "No Date",
             status: statusResult as "Passed" | "Failed",
             level: matchedTopic ? `${matchedTopic.difficulty} Level` : "General Level",
             score: finalScore,

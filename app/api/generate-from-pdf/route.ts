@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     }
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: `
         Kamu adalah AI ahli kurikulum pendidikan dari FennyTech. Tugasmu adalah membaca, menganalisis, dan merangkum Dokumen Sumber di bawah ini menjadi sebuah materi pembelajaran terstruktur beserta kuis essay.
 
