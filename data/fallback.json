@@ -10,52 +10,52 @@
   "categories": [
     {
       "category_id": "cat_math",
-      "name": "mathematics",
+      "name": "Mathematics",
       "image": "mathematics.jpg"
     },
     {
       "category_id": "cat_science",
-      "name": "science",
+      "name": "Science",
       "image": "science.jpg"
     },
     {
       "category_id": "cat_history",
-      "name": "history",
+      "name": "History",
       "image": "history.jpg"
     },
     {
       "category_id": "cat_tech",
-      "name": "technology",
+      "name": "Technology",
       "image": "technology.jpg"
     },
     {
       "category_id": "cat_sport",
-      "name": "sport",
+      "name": "Sport",
       "image": "sport.jpg"
     },
     {
-      "category_id": "cat_arts",
-      "name": "arts-and-culture",
-      "image": "arts-and-culture.jpg"
-    },
-    {
       "category_id": "cat_econ",
-      "name": "economics",
+      "name": "Economics",
       "image": "economics.jpg"
     },
     {
+      "category_id": "cat_arts",
+      "name": "Arts and Culture",
+      "image": "art-and-culture.jpg"
+    },
+    {
       "category_id": "cat_social",
-      "name": "social-science",
+      "name": "Social-Science",
       "image": "social-science.jpg"
     },
     {
       "category_id": "cat_health",
-      "name": "health-and-biology",
+      "name": "Health and Biology",
       "image": "health-and-biology.jpg"
     },
     {
       "category_id": "cat_lang",
-      "name": "language",
+      "name": "Language",
       "image": "language.jpg"
     }
   ],
@@ -235,12 +235,12 @@
   "learning_histories": [
     {
       "history_id": "hist_001",
-      "user_id": "usr_9921",
+      "user_id": "usr_2",
       "topic_id": "top_tech_01",
       "is_custome_topic": false,
       "topic_title": "Arsitektur RESTful API",
       "date": "2026-05-22T08:00:00Z",
-      "status": "Completed",
+      "status": "Passed",
       "level": "Intermediate",
       "score": 100,
       "ai_feedback": "Luar biasa! Kamu memahami konsep RESTful API dan struktur HTTP method dengan sangat matang.",
@@ -257,12 +257,12 @@
     },
     {
       "history_id": "hist_002",
-      "user_id": "usr_9921",
+      "user_id": "usr_2",
       "topic_id": "top_math_01",
       "is_custome_topic": true,
       "topic_title": "Aljabar Linear Dasar",
       "date": "2026-05-21T14:15:00Z",
-      "status": "In Progress",
+      "status": "Failed",
       "level": "Intermediate",
       "score": 0,
       "ai_feedback": "Selesaikan kuis untuk mendapatkan feedback analisis dari AI.",
