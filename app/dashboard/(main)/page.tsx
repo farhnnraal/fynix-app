@@ -31,22 +31,20 @@ export default function HomePage() {
         console.error("Gagal membaca objek currentUser:", error);
       }
     }
-    
+
     if (localCategories) {
       try {
         const parsedCategories = JSON.parse(localCategories);
         const parsedTopics = localTopics ? JSON.parse(localTopics) : [];
-        
+
         const topSixCategories = parsedCategories.slice(0, 6);
-        
+
         const categoriesWithCount = topSixCategories.map((cat: any) => {
-          const matchingTopics = parsedTopics.filter(
-            (topic: any) => topic.category_id === cat.category_id
-          );
-          
+          const matchingTopics = parsedTopics.filter((topic: any) => topic.category_id === cat.category_id);
+
           return {
             ...cat,
-            totalTopicsCount: matchingTopics.length
+            totalTopicsCount: matchingTopics.length,
           };
         });
 
@@ -60,9 +58,7 @@ export default function HomePage() {
       try {
         const parsedHistories = JSON.parse(localHistories);
 
-        const userHistories = parsedHistories.filter(
-          (item: any) => item.user_id === currentUserId
-        );
+        const userHistories = parsedHistories.filter((item: any) => item.user_id === currentUserId);
 
         const topThreeHistories = userHistories.slice(0, 3);
 
@@ -77,14 +73,14 @@ export default function HomePage() {
 
   const formatDate = (dateString: string) => {
     try {
-      const options: Intl.DateTimeFormatOptions = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+      const options: Intl.DateTimeFormatOptions = {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
       };
-      return new Date(dateString).toLocaleDateString('id-ID', options);
+      return new Date(dateString).toLocaleDateString("id-ID", options);
     } catch {
       return dateString;
     }
@@ -113,7 +109,10 @@ export default function HomePage() {
             </button>
             <div className="w-full">
               <input type="file" id="pdf-upload" accept=".pdf" className="hidden" />
-              <label htmlFor="pdf-upload" className="block text-center cursor-pointer bg-white px-3 py-2 rounded-lg w-full text-black text-btn border border-neutral-300">
+              <label
+                htmlFor="pdf-upload"
+                className="block text-center cursor-pointer bg-white px-3 py-2 rounded-lg w-full text-black text-btn border border-neutral-300"
+              >
                 Use PDF File
               </label>
             </div>
@@ -129,51 +128,52 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-4">
-              {categories.length > 0 ? (
-                categories.map((cat) => {                  
-                  return (
-                    <TopicCard
-                      key={cat.category_id}
-                      imageUrl={`/images/${cat.image}`}
-                      name={cat.name}
-                      total={cat.totalTopicsCount || 0}
-                    />
-                  );
-                })
-              ) : (
-                <p className="col-span-2 text-center text-gray-500"></p>
-              )}
+            {categories.length > 0 ? (
+              categories.map((cat) => {
+                return (
+                  <TopicCard
+                    key={cat.category_id}
+                    id={cat.category_id}
+                    imageUrl={`/images/${cat.image}`}
+                    name={cat.name}
+                    total={cat.totalTopicsCount || 0}
+                  />
+                );
+              })
+            ) : (
+              <p className="col-span-2 text-center text-gray-500"></p>
+            )}
           </div>
         </section>
 
         {/* Learning History Section */}
-      <section className="space-y-4 mt-10">
-        <div className="flex justify-between items-center">
-          <h2 className="text-lg font-bold text-neutral-900">Learning History</h2>
-          <Link href="/dashboard/history" className="text-sm font-bold text-primary-500 hover:underline">
-            See All
-          </Link>
-        </div>
-        
-        <div className="space-y-4">
-          {histories.length > 0 ? (
-            histories.map((hist) => (
-              <HistoryCard 
-                key={hist.history_id}
-                id={hist.history_id}
-                title={hist.topic_title}
-                date={formatDate(hist.date)}
-                status={hist.status}
-                level={hist.level}
-                score={hist.score}
-              />
-            ))
-          ) : (
-            // Tampilan jika user baru mendaftar dan belum punya riwayat belajar sama sekali
-            <p className="text-center py-4 text-gray-500 text-sm">You don't have any hsitories</p>
-          )}
-        </div>
-      </section>
+        <section className="space-y-4 mt-10">
+          <div className="flex justify-between items-center">
+            <h2 className="text-lg font-bold text-neutral-900">Learning History</h2>
+            <Link href="/dashboard/history" className="text-sm font-bold text-primary-500 hover:underline">
+              See All
+            </Link>
+          </div>
+
+          <div className="space-y-4">
+            {histories.length > 0 ? (
+              histories.map((hist) => (
+                <HistoryCard
+                  key={hist.history_id}
+                  id={hist.history_id}
+                  title={hist.topic_title}
+                  date={formatDate(hist.date)}
+                  status={hist.status}
+                  level={hist.level}
+                  score={hist.score}
+                />
+              ))
+            ) : (
+              // Tampilan jika user baru mendaftar dan belum punya riwayat belajar sama sekali
+              <p className="text-center py-4 text-gray-500 text-sm">Kamu belum memulai quiz apa pun.</p>
+            )}
+          </div>
+        </section>
       </div>
     </div>
   );
