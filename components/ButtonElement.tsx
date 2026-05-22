@@ -8,10 +8,17 @@ export default function ButtonElement({
     destination: string
 }) {
     return (
-        <Link href={ destination }>
-            <button className="w-[44px] h-[44px] rounded-full flex items-center justify-center purpose-shadow">
-                { icon }
-            </button>
-        </Link>
+        <>
+            <style>{`
+                .purpose-shadow {
+                    box-shadow: 0px 0 24px rgba(0, 0, 0, 0.10);
+                }
+            `}</style>
+            <Link href={ destination }>
+                <button className="w-[60px] h-[60px] rounded-full flex items-center justify-center purpose-shadow">
+                    { icon }
+                </button>
+            </Link>
+        </>
     )
 }
