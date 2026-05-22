@@ -9,14 +9,14 @@ export async function POST(request: Request) {
     const { topic,user_id } = await request.json();
 
     const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash",
+      model: "gemini-3-flash-preview",
       contents: `
         Buatlah materi pembelajaran kustom berbasis AI berdasarkan permintaan berikut. 
         Topik: "${topic}"
         Minimal 2-3 topics dan juga 2-3 sub topics.Buatlah minimal 5 soal essay kritis yang menantang pemahaman user berdasarkan materi tersebut
         Kamu WAJIB merespons dengan format JSON murni mengikuti struktur ini tanpa pembuka/penutup markdown (\`\`\`json) :
         {
-          "topics:[
+          "custom_ai_topics:[
             "custom_topic_id": "top_ai_${Date.now()}",
             "user_id": "${user_id}",
             "user_prompt_request": "${topic}",

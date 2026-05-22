@@ -18,7 +18,7 @@ export default function HomePage() {
 
   const { topic, loading, handleTopicChange, submitTopic } = useGenerateTopic({
     onSuccess: (data) => {
-      router.push(`/dashboard/topics/${data.custom_topic_id}`);
+      router.push(`/dashboard/topics/${data.custom_category.custom_category_id}`);
     },
   });
 
