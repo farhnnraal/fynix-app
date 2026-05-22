@@ -41,7 +41,7 @@ export default function HomePage() {
         <section className="space-y-4">
           <div className="flex justify-between items-center">
             <h2 className="text-lg font-bold text-neutral-900">Topic Suggestions</h2>
-            <Link href="/topics" className="text-sm font-bold text-primary-500 hover:underline">
+            <Link href="/dashboard/topics" className="text-sm font-bold text-primary-500 hover:underline">
               See All
             </Link>
           </div>
