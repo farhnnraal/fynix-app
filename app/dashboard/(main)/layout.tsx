@@ -14,7 +14,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const isActive = (path: string) => pathname === path;
 
   return (
-    <div className="w-full max-w-[390px] mx-auto bg-neutral-50 h-dvh flex flex-col justify-between box-border relative shadow-md">
+    <div className="w-full bg-neutral-50 h-dvh flex flex-col justify-between box-border relative">
       <main className="w-full overflow-y-auto pb-[87px]">{children}</main>
       <nav className="absolute bottom-0 left-0 right-0 bg-white border-t border-neutral-100 rounded-t-[24px] py-4 flex justify-between items-center shadow-[0_-4px_16px_rgba(0,0,0,0.04)] z-50">
         {/* Tab HOME */}

@@ -76,29 +76,34 @@
   --color-info-950: #162456;
 
   /* Font Sizes + Line Heights */
-  --font-size-h1: 2rem; /* 32px */
-  --font-size-h2: 1.5rem; /* 24px */
-  --font-size-h3: 1.25rem; /* 20px */
-  --font-size-h4: 1rem; /* 16px */
-  --font-size-body: 0.875rem; /* 14px */
-  --font-size-caption: 0.75rem; /* 12px */
-  --font-size-label: 0.75rem; /* 12px */
-  --font-size-badge: 0.6875rem; /* 11px */
-  --font-size-badge-lg: 0.75rem; /* 12px */
-  --font-size-btn: 0.875rem; /* 14px */
-  --font-size-btn-lg: 1rem; /* 16px */
+  /* Base: 18px body, scaled up by 1.5× modular scale */
+  --font-size-h1: 8.5429rem; /* ~136.6px — 18 × 1.5⁵ */
+  --font-size-h2: 5.6953rem; /* ~91.1px — 18 × 1.5⁴ */
+  --font-size-h3: 3.7968rem; /* ~60.7px — 18 × 1.5³ */
+  --font-size-h4: 2.5312rem; /* 40.5px — 18 × 1.5² */
+  --font-size-h5: 1.6875rem; /* 27px — 18 × 1.5 */
+  --font-size-h6: 1.125rem; /* 18px — base */
+  --font-size-body: 1.125rem; /* 18px — base */
+  --font-size-caption: 0.875rem; /* 14px */
+  --font-size-label: 0.875rem; /* 14px */
+  --font-size-badge: 0.75rem; /* 12px */
+  --font-size-badge-lg: 0.875rem; /* 14px */
+  --font-size-btn: 1.125rem; /* 18px — matches body */
+  --font-size-btn-lg: 1.6875rem; /* 27px — matches h5 */
 
-  --line-height-h1: 2.5rem; /* 40px */
-  --line-height-h2: 2.25rem; /* 36px */
-  --line-height-h3: 1.875rem; /* 30px */
-  --line-height-h4: 1.5rem; /* 24px */
-  --line-height-body: 1.375rem; /* 22px */
-  --line-height-caption: 1.125rem; /* 18px */
-  --line-height-label: 1.125rem; /* 18px */
-  --line-height-badge: 1rem; /* 16px */
-  --line-height-badge-lg: 1.125rem; /* 18px */
-  --line-height-btn: 1.375rem; /* 22px */
-  --line-height-btn-lg: 1.5rem; /* 24px */
+  --line-height-h1: 9.375rem; /* ~150px */
+  --line-height-h2: 6.5625rem; /* ~105px */
+  --line-height-h3: 4.5rem; /* ~72px */
+  --line-height-h4: 3.25rem; /* 52px */
+  --line-height-h5: 2.375rem; /* 38px */
+  --line-height-h6: 1.6875rem; /* 27px */
+  --line-height-body: 1.6875rem; /* 27px */
+  --line-height-caption: 1.25rem; /* 20px */
+  --line-height-label: 1.25rem; /* 20px */
+  --line-height-badge: 1.125rem; /* 18px */
+  --line-height-badge-lg: 1.25rem; /* 20px */
+  --line-height-btn: 1.6875rem; /* 27px */
+  --line-height-btn-lg: 2.375rem; /* 38px */
 
   /* Font Weights */
   --font-weight-regular: 400;
@@ -127,6 +132,17 @@
 @utility text-h4 {
   font-size: var(--font-size-h4);
   line-height: var(--line-height-h4);
+  font-weight: var(--font-weight-bold);
+}
+@utility text-h5 {
+  font-size: var(--font-size-h5);
+  line-height: var(--line-height-h5);
+  font-weight: var(--font-weight-bold);
+}
+
+@utility text-h6 {
+  font-size: var(--font-size-h6);
+  line-height: var(--line-height-h6);
   font-weight: var(--font-weight-bold);
 }
 

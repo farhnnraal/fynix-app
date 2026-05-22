@@ -85,8 +85,8 @@ export default function HistoryPage() {
   return (
     <div className="w-full flex flex-col gap-4 p-6 mb-20">
       <div className="w-full flex flex-col gap-1">
-        <h3 className="text-h3 font-bold text-neutral-900">Learning History</h3>
-        <p className="text-body text-neutral-500">List of all your learning history.</p>
+        <h3 className="text-h3 font-medium text-neutral-900">Learning History</h3>
+        <p className="text-body text-neutral-700">List of all your learning history.</p>
       </div>
 
       {/* SEARCH BAR */}

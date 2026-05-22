@@ -1,8 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter, useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import LearningMaterial from "@/components/LearningMaterial";
+import { LearningResult } from "@/.next/types/learning";
 
 interface SubTopic {
   sub_topic_id: string;
@@ -29,8 +33,19 @@ export default function MaterialPage() {
   const [topic, setTopic] = useState<TopicData | null>(null);
   const [loading, setLoading] = useState(true);
 
+  const [materialData, setMaterialData] = useState<LearningResult | null>(null);
+
   useEffect(() => {
     if (!topicIdFromUrl) return;
+
+    const stored = localStorage.getItem("activeMaterial");
+    if (stored) {
+      try {
+        setMaterialData(JSON.parse(stored));
+      } catch (err) {
+        console.error("Failed to parse activeMaterial", err);
+      }
+    }
 
     try {
       setLoading(true);
@@ -80,7 +95,7 @@ export default function MaterialPage() {
   }
 
   return (
-    <div className="w-full h-dvh flex flex-col max-w-[390px] mx-auto bg-neutral-50 min-h-screen pb-[161px] relative">
+    <div className="w-full flex flex-col bg-neutral-50 min-h-screen pb-[161px] relative">
       <div className="overflow-y-auto p-6">
         {/* Tombol Back */}
         <button
